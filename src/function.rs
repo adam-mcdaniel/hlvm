@@ -96,6 +96,11 @@ impl Fun {
         self.load(name)
     }
 
+    pub fn disassemble(&mut self) -> Self {
+        self.println();
+        self.return_self()
+    }
+
     pub fn as_value(&self) -> Value {
         let mut body = list(&[]);
         for expr in self.body.clone() {
@@ -106,6 +111,12 @@ impl Fun {
     }
 
     pub fn run(&mut self) {
+        StackFrame::from_instructions(
+            self.as_value()
+        ).run();
+    }
+
+    pub fn debug(&mut self) {
         println!("===| DEBUG |===> main {}\n===[ START ]===>", self.as_value());
         StackFrame::from_instructions(
             self.as_value()

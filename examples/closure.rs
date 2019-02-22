@@ -42,8 +42,7 @@ fn main() {
 
         .add_data(string("7 tripled is ")).print()
         .add_data(num("7")).load("triple")
-        .call_from_stack().println()
-        ;
+        .call_from_stack().println();
 
     main.run();
 }
