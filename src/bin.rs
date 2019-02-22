@@ -1,4 +1,4 @@
-extern crate runtime;
+extern crate hlvm_runtime;
 use hlvm_runtime::literals::*;
 use hlvm_runtime::value::Value;
 
