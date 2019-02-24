@@ -20,7 +20,9 @@ fn main() {
         )
         .add_fun(
             Fun::new()
-                .add_num("1")
+                .add_num("9")
+                .load("a")
+                .less()
         )
         .while_function();
 

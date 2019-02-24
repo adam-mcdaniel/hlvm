@@ -136,40 +136,40 @@ impl Fun {
         self.return_self()
     }
 
-    pub fn if_function(&mut self) -> Self {
-        let if_fun = Fun::new()
-            .get_parameter("c")
-            .load("c").store("save_condition")
-            .get_parameter("a")
-            .get_parameter("b")
-            .add_fun(
-                Fun::new()
-                    .load("a")
-            )
-            .add_fun(
-                Fun::new()
-                    .load("c")
+    pub fn if_function(&mut self) -> Self {self.call(Fun::define(ins(If))); self.return_self()}
 
-                    .add_num("0").store("c")
-            ).while_function()
+    // pub fn if_function(&mut self) -> Self {
+    //     let if_fun = Fun::new()
+    //         .get_parameter("c")
+    //         .get_parameter("a")
+    //         .get_parameter("b")
 
-            .load("save_condition").store("c")
+    //         .load("c").store("d")
+    //         .add_fun(
+    //             Fun::new()
+    //                 .load("a")
+    //                 .add_num("0").store("d")
+    //         )
+    //         .add_fun(
+    //             Fun::new()
+    //                 .load("d")
+    //         ).while_function()
 
-            .add_fun(
-                Fun::new()
-                    .load("b")
-                    .add_num("1")
-                    .store("c")
-            )
-            .add_fun(
-                Fun::new()
-                    .load("c")
-                    .not()
-                    .add_num("1")
-                    .store("c")
-            ).while_function();
+    //         .load("c").store("d")
+    //         .add_fun(
+    //             Fun::new()
+    //                 .load("b")
+    //                 .add_num("1").store("d")
+    //         )
+    //         .add_fun(
+    //             Fun::new()
+    //                 .load("d")
+    //                 .not()
+    //         ).while_function()
+    //         ;
 
-        self.add_fun(if_fun);
-        self.return_self()
-    }
+    //     self.add_fun(if_fun);
+    //     self.call_from_stack();
+    //     self.return_self()
+    // }
 }
