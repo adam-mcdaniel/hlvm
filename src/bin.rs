@@ -28,8 +28,9 @@ fn main() {
         .add_data(num("8"))
         .call(square.clone()).println()
 
-        .add_data(none())
-        .call_foreign_function(hello_world)
+       	.add_data(none())
+	.add_foreign_fun(hello_world)
+        .call_foreign_function()
 
         .add_data(string("the best language is ")).print()
         
