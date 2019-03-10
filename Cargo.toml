@@ -20,5 +20,5 @@ opt-level = 3
 
 
 [dependencies]
-hlvm_runtime = "0.2.0"
-# hlvm_runtime = {path="../hlvm_runtime", version="0.1.6"}
+# hlvm_runtime = "0.2.0"
+hlvm_runtime = {path="../hlvm_runtime", version="0.2.0"}

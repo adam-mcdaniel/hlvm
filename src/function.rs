@@ -6,6 +6,10 @@ pub use hlvm_runtime::object::Object;
 use hlvm_runtime::stack::StackFrame;
 use hlvm_runtime::object::Instruction::*;
 
+
+pub type ForeignFunction = fn(Value) -> Value;
+
+
 #[derive(Clone, Debug)]
 pub struct Fun {
     body: Vec<Value>
@@ -36,6 +40,11 @@ impl Fun {
         self.return_self()
     }
 
+    pub fn add_foreign_fun(&mut self, fun: ForeignFunction) -> Self {
+        self.add_data(foreign_function(fun));
+        self.return_self()
+    }
+
     pub fn add_str(&mut self, s: &str) -> Self {
         self.add_data(string(s));
         self.return_self()
@@ -62,10 +71,7 @@ impl Fun {
         self.return_self()
     }
 
-    pub fn call_foreign_function(&mut self, fun: fn(Value) -> Value) -> Self {
-        self.add_data(
-            Value::from_foreign_function(fun)
-        );
+    pub fn call_foreign_function(&mut self) -> Self {
         self.add_data(ins(Execute));
         self.return_self()
     }
@@ -91,7 +97,7 @@ impl Fun {
     }
 
     pub fn disassemble(&mut self) -> Self {
-        println!("{}", self.as_value());
+        self.add_data(self.as_value());
         self.return_self()
     }
 
