@@ -41,7 +41,11 @@ impl Fun {
     }
 
     pub fn add_foreign_fun(&mut self, fun: ForeignFunction) -> Self {
-        self.add_data(foreign_function(fun));
+        self.add_fun(
+            Fun::new()
+                .add_data(foreign_function(fun))
+                .call_foreign_function()
+        );
         self.return_self()
     }
 
