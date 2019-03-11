@@ -40,10 +40,10 @@ impl Fun {
         self.return_self()
     }
 
-    // pub fn add_foreign_fun(&mut self, fun: ForeignFunction) -> Self {
-    //     self.add_data(foreign_function(fun));
-    //     self.return_self()
-    // }
+    pub fn add_foreign_fun(&mut self, fun: ForeignFunction) -> Self {
+        self.add_data(foreign_function(fun));
+        self.return_self()
+    }
 
     pub fn add_str(&mut self, s: &str) -> Self {
         self.add_data(string(s));
