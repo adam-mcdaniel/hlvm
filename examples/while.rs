@@ -20,11 +20,16 @@ fn main() {
         )
         .add_fun(
             Fun::new()
-                .add_num("9")
+                .add_num("1000")
                 .load("a")
                 .less()
         )
-        .while_function();
+        .while_function()
+        .add_str("a is ")
+        .print()
+        .load("a")
+        .println()
+        ;
 
     main.run();
 }

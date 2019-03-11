@@ -7,9 +7,7 @@ fn main() {
         .add_num("0") // change me to one or zero!
         .if_function()
         .println()
-        .println()
-        .println()
-        .println();
-
+        ;
+        
     main.run();
 }
