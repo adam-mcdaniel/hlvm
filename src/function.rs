@@ -127,26 +127,90 @@ impl Fun {
         ).run();
     }
 
-    pub fn print(&mut self) -> Self {self.call(Fun::define(ins(Print))); self.return_self()}
-    pub fn println(&mut self) -> Self {self.call(Fun::define(ins(Println))); self.return_self()}
-    pub fn add(&mut self) -> Self {self.call(Fun::define(ins(Add))); self.return_self()}
-    pub fn mul(&mut self) -> Self {self.call(Fun::define(ins(Mul))); self.return_self()}
-    pub fn sub(&mut self) -> Self {self.call(Fun::define(ins(Sub))); self.return_self()}
-    pub fn div(&mut self) -> Self {self.call(Fun::define(ins(Div))); self.return_self()}
-    pub fn not(&mut self) -> Self {self.call(Fun::define(ins(Not))); self.return_self()}
-    pub fn greater(&mut self) -> Self {self.call(Fun::define(ins(Greater))); self.return_self()}
-    pub fn less(&mut self) -> Self {self.call(Fun::define(ins(Less))); self.return_self()}
-    pub fn eq(&mut self) -> Self {self.call(Fun::define(ins(Equal))); self.return_self()}
-    pub fn append_list(&mut self) -> Self {self.call(Fun::define(ins(Append))); self.return_self()}
-    pub fn pop_list(&mut self) -> Self {self.call(Fun::define(ins(Pop))); self.return_self()}
-    pub fn index(&mut self) -> Self {self.call(Fun::define(ins(Index))); self.return_self()}
+    // pub fn print(&mut self) -> Self {self.call(Fun::define(ins(Print))); self.return_self()}
+    // pub fn println(&mut self) -> Self {self.call(Fun::define(ins(Println))); self.return_self()}
+    // pub fn add(&mut self) -> Self {self.call(Fun::define(ins(Add))); self.return_self()}
+    // pub fn mul(&mut self) -> Self {self.call(Fun::define(ins(Mul))); self.return_self()}
+    // pub fn sub(&mut self) -> Self {self.call(Fun::define(ins(Sub))); self.return_self()}
+    // pub fn div(&mut self) -> Self {self.call(Fun::define(ins(Div))); self.return_self()}
+    // pub fn not(&mut self) -> Self {self.call(Fun::define(ins(Not))); self.return_self()}
+    // pub fn greater(&mut self) -> Self {self.call(Fun::define(ins(Greater))); self.return_self()}
+    // pub fn less(&mut self) -> Self {self.call(Fun::define(ins(Less))); self.return_self()}
+    // pub fn append_list(&mut self) -> Self {self.call(Fun::define(ins(Append))); self.return_self()}
+    // pub fn pop_list(&mut self) -> Self {self.call(Fun::define(ins(Pop))); self.return_self()}
+
+    pub fn print(&mut self) -> Self {
+        self.add_data(ins(Print));
+        self.return_self()
+    }
+    pub fn println(&mut self) -> Self {
+        self.add_data(ins(Println));
+        self.return_self()
+    }
+
+    pub fn add(&mut self) -> Self {
+        self.add_data(ins(Add));
+        self.return_self()
+    }
+    pub fn mul(&mut self) -> Self {
+        self.add_data(ins(Mul));
+        self.return_self()
+    }
+    pub fn sub(&mut self) -> Self {
+        self.add_data(ins(Sub));
+        self.return_self()
+    }
+    pub fn div(&mut self) -> Self {
+        self.add_data(ins(Div));
+        self.return_self()
+    }
+    pub fn not(&mut self) -> Self {
+        self.add_data(ins(Not));
+        self.return_self()
+    }
+
+    pub fn greater(&mut self) -> Self {
+        self.add_data(ins(Greater));
+        self.return_self()
+    }
+    pub fn less(&mut self) -> Self {
+        self.add_data(ins(Less));
+        self.return_self()
+    }
+
+    pub fn append_list(&mut self) -> Self {
+        self.add_data(ins(Append));
+        self.return_self()
+    }
+    pub fn pop_list(&mut self) -> Self {
+        self.add_data(ins(Pop));
+        self.return_self()
+    }
+
+    pub fn eq(&mut self) -> Self {
+        self.add_data(ins(Equal));
+        self.return_self()
+    }
+
+    pub fn index(&mut self) -> Self {
+        self.add_data(ins(Index));
+        self.return_self()
+    }
+
+
 
     pub fn while_function(&mut self) -> Self {
         self.add_data(ins(While));
         self.return_self()
     }
 
-    pub fn if_function(&mut self) -> Self {self.call(Fun::define(ins(If))); self.return_self()}
+    pub fn if_function(&mut self) -> Self {
+        self.add_data(ins(If));
+        self.return_self()
+    }
+
+    // pub fn if_function(&mut self) -> Self {self.call(Fun::define(ins(If))); self.return_self()}
+    // pub fn if_function(&mut self) -> Self {self.call(Fun::define(ins(If))); self.return_self()}
 
     // pub fn if_function(&mut self) -> Self {
     //     let if_fun = Fun::new()
