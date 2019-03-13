@@ -1,5 +1,6 @@
 extern crate hlvm_runtime;
 
+#[macro_use]
 pub use hlvm_runtime::literals::*;
 pub use hlvm_runtime::value::Value;
 pub use hlvm_runtime::object::Object;
@@ -61,6 +62,11 @@ impl Fun {
 
     pub fn add_list(&mut self, l: &[Value]) -> Self {
         self.add_data(list(l));
+        self.return_self()
+    }
+
+    pub fn add_obj(&mut self) -> Self {
+        self.add_data(empty_obj());
         self.return_self()
     }
 
@@ -197,6 +203,15 @@ impl Fun {
         self.return_self()
     }
 
+
+    pub fn get_attr(&mut self) -> Self {
+        self.add_data(ins(GetAttr));
+        self.return_self()
+    }
+    pub fn set_attr(&mut self) -> Self {
+        self.add_data(ins(SetAttr));
+        self.return_self()
+    }
 
 
     pub fn while_function(&mut self) -> Self {

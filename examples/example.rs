@@ -13,7 +13,7 @@ fn main() {
 
         .add_fun(Fun::new()
             .load("my_list")
-            .index_list()
+            .index()
             .call_from_stack()
         ).store("call_n")
 
