@@ -1,6 +1,6 @@
 [package]
 name = "hlvm"
-version = "0.7.0"
+version = "0.7.1"
 authors = ["adam"]
 edition = "2018"
 license = "MIT"
