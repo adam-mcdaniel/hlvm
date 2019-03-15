@@ -1,6 +1,6 @@
 [package]
 name = "hlvm"
-version = "0.7.1"
+version = "0.7.2"
 authors = ["adam"]
 edition = "2018"
 license = "MIT"
@@ -20,5 +20,5 @@ opt-level = 3
 
 
 [dependencies]
-hlvm_runtime = "0.4.0"
+hlvm_runtime = "0.4.1"
 # hlvm_runtime = {path="../hlvm_runtime", version="0.4.0"}
