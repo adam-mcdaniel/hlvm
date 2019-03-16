@@ -1,9 +1,9 @@
 extern crate hlvm_runtime;
 
-#[macro_use]
 pub use hlvm_runtime::literals::*;
 pub use hlvm_runtime::value::Value;
 pub use hlvm_runtime::object::Object;
+pub use hlvm_runtime::number::*;
 use hlvm_runtime::stack::StackFrame;
 use hlvm_runtime::object::Instruction::*;
 
