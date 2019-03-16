@@ -65,6 +65,17 @@ impl Fun {
         self.return_self()
     }
 
+    pub fn add_list_from_fun(&mut self, fun: Self) -> Self {
+        self.add_fun(
+            Fun::new()
+                .add_fun(fun)
+                .call_from_stack()
+                .list_from_stack()
+        );
+        self.call_from_stack();
+        self.return_self()
+    }
+
     pub fn add_obj(&mut self) -> Self {
         self.add_data(empty_obj());
         self.return_self()
@@ -190,6 +201,10 @@ impl Fun {
     }
     pub fn pop_list(&mut self) -> Self {
         self.add_data(ins(Pop));
+        self.return_self()
+    }
+    pub fn list_from_stack(&mut self) -> Self {
+        self.add_data(ins(ListFromStack));
         self.return_self()
     }
 

@@ -12,10 +12,13 @@ fn main() {
     }
     
     
-    let square = Fun::new()
-        .get_parameter("a")
-        .load("a")
-        .load("a").mul();
+    let mut decompose_list = Fun::new()
+        .add_fun(
+            Fun::new()
+                .add_num("1")
+                .add_str("test")
+        )
+        .run();
 
     // let mut main = Fun::new()
     //     .add_fun(Fun::new().print()).store("print")
